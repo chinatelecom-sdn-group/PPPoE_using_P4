@@ -1,0 +1,236 @@
+{
+    "tables": {
+        "ip_table": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "addppp_fwd", 
+                        "data": {
+                            "ethdst": {
+                                "value": "0x000001000001"
+                            }, 
+                            "sessionid": {
+                                "value": "2"
+                            }, 
+                            "ethsrc": {
+                                "value": "0x001094000002"
+                            }, 
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "0800client_vbras", 
+                    "match": {
+                        "ipv4_head.dstAddr": {
+                            "value": "202.97.0.6"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "addppp_fwd", 
+                        "data": {
+                            "ethdst": {
+                                "value": "0x000001000001"
+                            }, 
+                            "sessionid": {
+                                "value": "1"
+                            }, 
+                            "ethsrc": {
+                                "value": "0x001094000002"
+                            }, 
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "0800client_vbras_1", 
+                    "match": {
+                        "ipv4_head.dstAddr": {
+                            "value": "202.97.0.7"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "addppp_fwd", 
+                        "data": {
+                            "ethdst": {
+                                "value": "0x000001000001"
+                            }, 
+                            "sessionid": {
+                                "value": "3"
+                            }, 
+                            "ethsrc": {
+                                "value": "0x001094000002"
+                            }, 
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "0800client_vbras_2", 
+                    "match": {
+                        "ipv4_head.dstAddr": {
+                            "value": "202.97.0.8"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "addppp_fwd", 
+                        "data": {
+                            "ethdst": {
+                                "value": "0x000001000001"
+                            }, 
+                            "sessionid": {
+                                "value": "4"
+                            }, 
+                            "ethsrc": {
+                                "value": "0x001094000002"
+                            }, 
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "0800client_vbras_3", 
+                    "match": {
+                        "ipv4_head.dstAddr": {
+                            "value": "202.97.0.9"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "ppp_table": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "fwd_act", 
+                        "data": {
+                            "port": {
+                                "value": "v0.0"
+                            }
+                        }
+                    }, 
+                    "name": "8863client_vbras", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "p0"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "fwd_act", 
+                        "data": {
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "8863vbras_client", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "v0.0"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "core_table": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "removeppp_fwd", 
+                        "data": {
+                            "ethsrc": {
+                                "value": "0x000001000001"
+                            }, 
+                            "ethdst": {
+                                "value": "0x001094000003"
+                            }, 
+                            "port": {
+                                "value": "p4"
+                            }
+                        }
+                    }, 
+                    "name": "0021client_vbras", 
+                    "match": {
+                        "ipv4_head.srcAddr": {
+                            "value": "202.97.0.6"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "removeppp_fwd", 
+                        "data": {
+                            "ethsrc": {
+                                "value": "0x000001000001"
+                            }, 
+                            "ethdst": {
+                                "value": "0x001094000004"
+                            }, 
+                            "port": {
+                                "value": "p4"
+                            }
+                        }
+                    }, 
+                    "name": "0021client_vbras_1", 
+                    "match": {
+                        "ipv4_head.srcAddr": {
+                            "value": "202.97.0.7"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "removeppp_fwd", 
+                        "data": {
+                            "ethsrc": {
+                                "value": "0x000001000001"
+                            }, 
+                            "ethdst": {
+                                "value": "0x001094000005"
+                            }, 
+                            "port": {
+                                "value": "p4"
+                            }
+                        }
+                    }, 
+                    "name": "0021client_vbras_2", 
+                    "match": {
+                        "ipv4_head.srcAddr": {
+                            "value": "202.97.0.8"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "removeppp_fwd", 
+                        "data": {
+                            "ethsrc": {
+                                "value": "0x000001000001"
+                            }, 
+                            "ethdst": {
+                                "value": "0x001094000006"
+                            }, 
+                            "port": {
+                                "value": "p4"
+                            }
+                        }
+                    }, 
+                    "name": "0021client_vbras_3", 
+                    "match": {
+                        "ipv4_head.srcAddr": {
+                            "value": "202.97.0.9"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
